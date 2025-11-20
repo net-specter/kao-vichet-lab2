@@ -2,13 +2,13 @@ Lab 2 Submission Notes
 Student: Vichet Kao
 
 Part 1: Containerize an application
-In this section, I learned how to create a Dockerfile to define the environment for a Node.js application. I used key commands like FROM, WORKDIR, COPY, RUN, and CMD. I learned how to build the image using `docker build` and run it as a container using `docker run`, mapping port 3000 on the host to port 3000 in the container.
+In this section I learned how to create a Dockerfile to define the environment for a Node.js application. I used key commands like FROM, WORKDIR, COPY, RUN, and CMD. I learned how to build the image using `docker build` and run it as a container using `docker run`, mapping port 3000 on the host to port 3000 in the container.
 
 Part 2: Update the application
-I learned that Docker containers are immutable. When I made changes to the source code, the changes did not appear in the running application. To update the app, I had to stop the container, rebuild the image with the new code, and start a new container. This highlighted the need for a better development workflow.
+I learned that Docker containers are immutable. When I made changes to the source code the changes did not appear in the running application. To update the app, I had to stop the container, rebuild the image with the new code, and start a new container. This highlighted the need for a better development workflow.
 
 Part 3: Share the application
-I learned how to share my Docker images using Docker Hub. I used `docker tag` to namespace the image with my Docker Hub username (VichetKao) and `docker push` to upload it to the registry. I verified this by running the image on a completely different environment (Play With Docker), proving the portability of containers.
+I learned how to share my Docker images using Docker Hub. I used 'docker tag to namespace the image with my Docker Hub username (VichetKao) and `docker push` to upload it to the registry. I verified this by running the image on a completely different environment (Play With Docker), proving the portability of containers.
 
 Part 4: Persist the DB
 I discovered that data inside a container is lost when the container is removed. To solve this, I learned about Named Volumes. By mounting a volume (`-v todo-db:/etc/todos`), I was able to persist the SQLite database file so that my To-Do list items remained saved even after deleting and restarting the container.
@@ -23,7 +23,7 @@ Part 7: Use Docker Compose
 I learned how to simplify the management of multi-container applications using Docker Compose. Instead of running long, complex `docker run` commands manually, I defined the services, volumes, and ports in a `docker-compose.yml` file. I used `docker compose up -d` to spin up the entire stack and `docker compose down` to clean it up.
 
 Part 8: Image-building best practices
-I learned about optimizing Docker images. Specifically, I learned the importance of the `.dockerignore` file to prevent unnecessary files (like `node_modules` or `.git`) from being copied into the image. This keeps the image size small and prevents sensitive data from leaking into the build.
+I learned about optimizing Docker images. I learned the importance of the `.dockerignore` file to prevent unnecessary files (like `node_modules` or `.git`) from being copied into the image. This keeps the image size small and prevents sensitive data from leaking into the build.
 
 Part 9: What next
 I understand that while Docker Compose is great for single-host deployments, the next step in the DevOps journey is Container Orchestration. Tools like Kubernetes or Docker Swarm are used to manage containers across multiple servers, handling scaling, health checks, and failovers in production environments.
