@@ -1,0 +1,10 @@
+services:
+  app:
+    image: getting-started-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - todo-db:/etc/todos
+
+volumes:
+  todo-db:
